@@ -1,0 +1,234 @@
+:root {
+    --background-color: white;
+    --text-color: black;
+    --link-color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.background {
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    z-index: 0;
+    filter: brightness(0.5); /* Riduce la luminosità per scurire lo sfondo */
+}
+
+body::before {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Aggiunge uno strato scuro per migliorare la leggibilità */
+    z-index: 1; /* Porta il layer sopra lo sfondo */
+}
+
+
+.hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+}
+
+.hub a img {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.hub a:hover img {
+    transform: scale(1.1);
+}
+
+.bottom-bar {
+    background-color: var(--background-color);
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.image-container {
+    position: fixed;
+    bottom: 0;
+    left: 5px;
+    z-index: 15;
+}
+
+.fixed-image {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+    transition: filter 0.5s;
+}
+
+.dropdown-menu {
+    display: block; /* Rendi il menu visibile quando attivato */
+    position: absolute;
+    bottom: 45px;
+    left: 5px;
+    background-color: var(--background-color);
+    color: var(--link-color);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+    min-width: 150px; /* Larghezza minima del menu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per il menu */
+}
+
+.dropdown-menu a {
+    color: black; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    display: flex; /* Usa flexbox per allineare l'immagine e il testo */
+    align-items: center; /* Centra verticalmente */
+    padding: 5px; /* Padding per un po' di spazio interno */
+    position: relative; /* Necessario per posizionare la barra di evidenziazione */
+}
+
+.dropdown-menu a img {
+    margin-right: 10px; /* Spazio tra immagine e testo */
+    height: 20px; /* Imposta l'altezza delle immagini */
+    width: auto; /* Mantiene le proporzioni */
+}
+
+.highlight {
+    display: none; /* Rende invisibile per default */
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%; /* Altezza della barra di evidenziazione */
+    background-color: rgba(0, 0, 0, 0.2); /* Colore trasparente */
+    top: 0;
+    border-radius: 5px; /* Arrotonda gli angoli */
+}
+
+.dropdown-menu a:hover .highlight {
+    display: block; /* Mostra la barra solo sull'opzione attiva */
+    background-color: rgba(0, 0, 0, 0.4); /* Colore scuro al passaggio del mouse */
+}
+
+
+.dropdown-menu img {
+    height: 20px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    border-radius: 5px;
+    display: none;
+}
+
+.alert {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: 30px;
+    left: 0;
+}
+
+.notification-container {
+    position: fixed;
+    bottom: 0;
+    right: 10px; /* Posiziona a destra */
+    z-index: 15;
+}
+
+.notification-menu {
+    display: none;
+    position: absolute;
+    bottom: 45px; /* Posizione sotto l'icona */
+    right: 0;
+    background-color: var(--background-color);
+    color: var(--link-color);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+    min-width: 150px; /* Larghezza minima del menu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per il menu */
+}
+
+.notification-container img {
+    height: 30px; /* Imposta l'altezza delle immagini */
+    width: auto; /* Mantiene le proporzioni */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+}
+
+.notification-message {
+    padding: 5px; /* Padding per un po' di spazio interno */
+    color: black; /* Colore del testo */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Separatore tra i messaggi */
+}
+
+.notification-message:last-child {
+    border-bottom: none; /* Rimuove il bordo dall'ultimo messaggio */
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.notification-container img {
+    height: 30px; /* Imposta l'altezza delle immagini */
+    width: auto; /* Mantiene le proporzioni */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    animation: blink 1s infinite; /* Applica l'animazione */
+}
+
+@keyframes blink-text {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.notification-message {
+    padding: 5px; /* Padding per un po' di spazio interno */
+    color: black; /* Colore del testo */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Separatore tra i messaggi */
+    animation: blink-text 1s infinite; /* Applica l'animazione */
+}
+
+.notification-message:hover {
+    animation: none; /* Ferma l'animazione al passaggio del mouse */
+    color: black; /* Mantiene il colore normale */
+}

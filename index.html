@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyta | WebSite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="hub">
+        <a href="https://drive.google.com/file/d/1hjMerfJo393nsP-q494tEqX5d9iTGYY1/view?usp=drive_link" data-valid="true" onmouseover="hideAlert(this)" onmouseleave="hideAlert(this)">
+            <img src="Switch.png" alt="Switch Icon">
+        </a>
+        <a href="https://drive.google.com/file/d/1lN-pBKAYwGApyMIGNgveniwUchvLdTDk/view?usp=sharing" data-valid="true" onmouseover="hideAlert(this)" onmouseleave="hideAlert(this)">
+            <img src="ph.png" alt="PH Icon">
+        </a>
+        <a href="https://drive.google.com/file/d/10Lxh8Y4Ujx6mcybCv5eFEtNhyj8kFcff/view?usp=sharing" data-valid="true" onmouseover="showAlert(this)" onmouseleave="hideAlert(this)">
+            <img src="prem.png" alt="Prem Icon">
+            <div class="alert">Link non disponibile</div>
+        </a>
+        <a href="https://calcio.ga" data-valid="true" onmouseover="showAlert(this)" onmouseleave="hideAlert(this)">
+            <img src="serie.png" alt="Serie Icon">
+            <div class="alert">Link non disponibile</div>
+        </a>
+    </div>
+
+    <div class="image-container" onmouseenter="showMenu()">
+        <img src="w11.png" alt="Logo" class="fixed-image">
+        <div class="dropdown-menu" id="dropdown-menu" onmouseleave="hideMenu()">
+            <a href="https://linktr.ee/onlypyta" data-valid="true" onmouseover="highlight(this)" onmouseleave="removeHighlight(this)">
+                <div class="highlight"></div>
+                <img src="link.png" alt="Link Icon"> LINK
+            </a>
+            <a href="https://www.paypal.com/paypalme/onlypyta?country.x=IT&locale.x=it_IT" data-valid="true" onmouseover="highlight(this)" onmouseleave="removeHighlight(this)">
+                <div class="highlight"></div>
+                <img src="pp.png" alt="Paypal Icon"> PAYPAL
+            </a>
+            <a href="https://discord.gg/vXGWPtDn" data-valid="true" onmouseover="showAlert(this)" onmouseleave="hideAlert(this)">
+                <div class="highlight"></div>
+                <img src="discord.png" alt="Discord Icon"> SERVER
+                <div class="alert">Link non disponibile</div>
+            </a>
+            <a href="https://www.youtube.com/@onlypyta" data-valid="true" onmouseover="showAlert(this)" onmouseleave="hideAlert(this)">
+                <div class="highlight"></div>
+                <img src="YT.png" alt="Discord Icon"> TUTORIAL
+                <div class="alert">Link non disponibile</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-bar"></div>
+
+    <div class="notification-container" onmouseenter="showNotificationMenu()">
+        <img src="not.jpg" alt="Notification Icon" class="fixed-image">
+        <div class="notification-menu" id="notification-menu" onmouseleave="hideNotificationMenu()">
+            <div class="notification-message">Anche la più piccola donazione è importante!</div>
+            <div class="notification-message">Se hai bisogno di supporto entra nel server!</div>
+            <div class="notification-message">Seguici sui i nostri profili tramite il tasto link che trovi nel menu!</div>
+            <!-- Aggiungi altri messaggi qui se necessario -->
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
